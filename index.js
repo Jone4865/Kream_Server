@@ -17,7 +17,10 @@ const typeDefs = gql`
     todaypeople: [TodayPeople],
     uncoming: [UnComing],
     unique: [Unique],
-    wintercrop: [WinterCrop]
+    wintercrop: [WinterCrop],
+    banner: [Banner],
+    menu1: [Menu1],
+    menu2: [Menu2],
   }
   type CozyOne {
     id: ID!
@@ -148,10 +151,30 @@ const typeDefs = gql`
     nickname: String!
     imgName: String!
   }
+  
+  type Banner {
+    id: ID!
+    imgName: String!
+    bottomColor: String!
+  }
 
+  type Menu1 {
+    id: ID!
+    imgName: String!
+    divName: String!
+  }
+  
+  type Menu2 {
+    id: ID!
+    imgName: String!
+    divName: String!
+  }
 `;
+
 const resolvers = {
   Query: {
+    menu1: () => database.menu1,
+    menu2: () => database.menu2,
     cozyone: () => database.cozyone,
     formyself: () => database.formyself,
     justdrop: () => database.justdrop,
@@ -167,6 +190,7 @@ const resolvers = {
     uncoming: () => database.uncoming,
     unique: () => database.unique,
     wintercrop: () => database.wintercrop,
+    banner: () => database.banner,
   },
 };
 const server = new ApolloServer({ typeDefs, resolvers });

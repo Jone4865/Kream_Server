@@ -15,7 +15,10 @@ const database = {
   todaypeople: [],
   uncoming: [],
   unique: [],
-  wintercrop: []
+  wintercrop: [],
+  banner: [],
+  menu1: [],
+  menu2: [],
 }
 Object.keys(database).forEach((key) => {
   database[key] = [
