@@ -3,26 +3,29 @@ const { ApolloServer, gql } = require("apollo-server");
 
 const typeDefs = gql`
   type Query {
-    cozyone: [CozyOne],
-    formyself: [ForMyself],
-    justdrop: [JustDrop],
-    KBO: [KBO],
-    mostpopular: [MostPopular],
-    mostwish: [MostWish],
-    newhighest: [NewHighest],
-    newin: [NewIn],
-    newlowest: [NewLowest],
-    streetmood: [StreetMood],
-    stylepicks: [StylePicks],
-    todaypeople: [TodayPeople],
-    uncoming: [UnComing],
-    unique: [Unique],
-    wintercrop: [WinterCrop],
-    banner: [Banner],
-    menu1: [Menu1],
-    menu2: [Menu2],
+    justdrop: [Justdrop]
+    mostpopular: [Mostpopular]
+    newin: [Newin]
+    buildawinter: [Buildawinter]
+    mostshared: [Mostshared]
+    museum: [Museum]
+    suedeshoes: [Suedeshoes]
+    lowest: [Lowest]
+    highest: [Highest]
+    upcoming: [Upcoming]
+    scent: [Scent]
+    giftideas: [Giftideas]
+    end: [End]
+
+    banner: [Banner]
+
+    menu1: [Menu1]
+    menu2: [Menu2]
+
+    stylepicks: [Stylepicks]
+    todaypeoples: [Todaypeoples]
   }
-  type CozyOne {
+  type Justdrop {
     id: ID!
     price: Int!
     maker: String!
@@ -31,7 +34,7 @@ const typeDefs = gql`
     now: Boolean!
     imgName: String!
   }
-  type ForMyself {
+  type Mostpopular {
     id: ID!
     price: Int!
     maker: String!
@@ -40,7 +43,7 @@ const typeDefs = gql`
     now: Boolean!
     imgName: String!
   }
-  type JustDrop {
+  type Newin {
     id: ID!
     price: Int!
     maker: String!
@@ -49,7 +52,7 @@ const typeDefs = gql`
     now: Boolean!
     imgName: String!
   }
-  type KBO {
+  type Buildawinter {
     id: ID!
     price: Int!
     maker: String!
@@ -58,7 +61,7 @@ const typeDefs = gql`
     now: Boolean!
     imgName: String!
   }
-  type MostPopular {
+  type Mostshared {
     id: ID!
     price: Int!
     maker: String!
@@ -67,7 +70,7 @@ const typeDefs = gql`
     now: Boolean!
     imgName: String!
   }
-  type MostWish {
+  type Museum {
     id: ID!
     price: Int!
     maker: String!
@@ -76,7 +79,7 @@ const typeDefs = gql`
     now: Boolean!
     imgName: String!
   }
-  type NewHighest {
+  type Suedeshoes {
     id: ID!
     price: Int!
     maker: String!
@@ -85,7 +88,7 @@ const typeDefs = gql`
     now: Boolean!
     imgName: String!
   }
-  type NewIn {
+  type Lowest {
     id: ID!
     price: Int!
     maker: String!
@@ -94,7 +97,7 @@ const typeDefs = gql`
     now: Boolean!
     imgName: String!
   }
-  type NewLowest {
+  type Highest {
     id: ID!
     price: Int!
     maker: String!
@@ -103,7 +106,7 @@ const typeDefs = gql`
     now: Boolean!
     imgName: String!
   }
-  type StreetMood {
+  type Upcoming {
     id: ID!
     price: Int!
     maker: String!
@@ -112,7 +115,7 @@ const typeDefs = gql`
     now: Boolean!
     imgName: String!
   }
-  type UnComing {
+  type Scent {
     id: ID!
     price: Int!
     maker: String!
@@ -121,7 +124,7 @@ const typeDefs = gql`
     now: Boolean!
     imgName: String!
   }
-  type Unique {
+  type Giftideas {
     id: ID!
     price: Int!
     maker: String!
@@ -130,7 +133,7 @@ const typeDefs = gql`
     now: Boolean!
     imgName: String!
   }
-  type WinterCrop {
+  type End {
     id: ID!
     price: Int!
     maker: String!
@@ -140,18 +143,17 @@ const typeDefs = gql`
     imgName: String!
   }
 
-  type StylePicks {
+  type Stylepicks {
+    id: ID!
+    nickname: String!
+    imgName: String!
+  }
+  type Todaypeoples {
     id: ID!
     nickname: String!
     imgName: String!
   }
 
-  type TodayPeople {
-    id: ID!
-    nickname: String!
-    imgName: String!
-  }
-  
   type Banner {
     id: ID!
     imgName: String!
@@ -163,7 +165,6 @@ const typeDefs = gql`
     imgName: String!
     divName: String!
   }
-  
   type Menu2 {
     id: ID!
     imgName: String!
@@ -175,21 +176,24 @@ const resolvers = {
   Query: {
     menu1: () => database.menu1,
     menu2: () => database.menu2,
-    cozyone: () => database.cozyone,
-    formyself: () => database.formyself,
+
     justdrop: () => database.justdrop,
-    KBO: () => database.KBO,
     mostpopular: () => database.mostpopular,
-    mostwish: () => database.mostwish,
-    newhighest: () => database.newhighest,
     newin: () => database.newin,
-    newlowest: () => database.newlowest,
-    streetmood: () => database.streetmood,
+    buildawinter: () => database.buildawinter,
+    mostshared: () => database.mostshared,
+    museum: () => database.museum,
+    suedeshoes: () => database.suedeshoes,
+    lowest: () => database.lowest,
+    highest: () => database.highest,
+    upcoming: () => database.upcoming,
+    scent: () => database.scent,
+    giftideas: () => database.giftideas,
+    end: () => database.end,
+
     stylepicks: () => database.stylepicks,
-    todaypeople: () => database.todaypeople,
-    uncoming: () => database.uncoming,
-    unique: () => database.unique,
-    wintercrop: () => database.wintercrop,
+    todaypeoples: () => database.todaypeoples,
+
     banner: () => database.banner,
   },
 };
