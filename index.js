@@ -146,18 +146,17 @@ const typeDefs = gql`
   type Stylepicks {
     id: ID!
     nickname: String!
-    imgName: String!
   }
   type Todaypeoples {
     id: ID!
     nickname: String!
-    imgName: String!
   }
 
   type Banner {
     id: ID!
     imgName: String!
     bottomColor: String!
+    backColor: String!
   }
 
   type Menu1 {
