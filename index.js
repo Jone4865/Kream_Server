@@ -162,12 +162,12 @@ const typeDefs = gql`
   type Menu1 {
     id: ID!
     imgName: String!
-    divName: String!
+    title : String!
   }
   type Menu2 {
     id: ID!
     imgName: String!
-    divName: String!
+    title : String!
   }
 `;
 
